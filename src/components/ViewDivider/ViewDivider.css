@@ -4,10 +4,3 @@
   background: transparent;
 }
 
-.view-divider:hover {
-  cursor: ew-resize;
-}
-
-.view-divider.no-hover:hover {
-  cursor: inherit;
-}

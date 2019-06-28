@@ -30,10 +30,13 @@ const d1Style = {
   top: '0',
 };
 
-const d2Style = {};
+const d2Style = {
+  cursor: 'ns-resize'
+};
 
 const d3Style = {
   top: '0',
+  cursor: 'ew-resize'
 };
 
 const c1Style = {
@@ -49,7 +52,7 @@ const c2Style = {
 export default class ViewLayout extends React.Component {
   state = {
     toolbarWidth: '50px',
-    dividerSize: '2px',
+    dividerSize: '4px',
     watchlistWidth: '0px'
   };
 
@@ -65,6 +68,10 @@ export default class ViewLayout extends React.Component {
     c1Style.width = `calc(100vw - 2 * (${toolbarWidth} + ${dividerSize}) - ${watchlistWidth})`;
     c1Style.height = `calc(60vh - ${dividerSize})`;
 
+    d2Style.left = c1Style.left;
+    d2Style.width = c1Style.width;
+    d2Style.top = c1Style.height;
+
     c2Style.left = c1Style.left;
     c2Style.width = c1Style.width;
     c2Style.height = `calc(40vh)`;
@@ -72,7 +79,7 @@ export default class ViewLayout extends React.Component {
     return (
       <Container className='view-layout' fixed style={containerStyle}>
         <ToolBar style={leftToolBarStyle}/>
-        <ViewDivider vertical size={dividerSize} hover={false} style={d1Style}/>
+        <ViewDivider vertical size={dividerSize} style={d1Style}/>
         <Container style={c1Style}/>
         <ViewDivider horizontal size={dividerSize} style={d2Style}/>
         <Container style={c2Style}/>

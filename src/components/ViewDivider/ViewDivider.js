@@ -12,9 +12,7 @@ export default function ViewDivider(props) {
     style.height = props.size || '2px';
   }
 
-  const noHover = props.hover !== false ? '' : 'no-hover';
-
   return (
-    <div className={'view-divider ' + noHover} style={style}/>
+    <div className='view-divider' style={style}/>
   );
 }
