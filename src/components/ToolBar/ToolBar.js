@@ -20,18 +20,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const selectedStyle = {};
-
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
 
-export default function ToolBar() {
+export default function ToolBar(props) {
   const classes = useStyles();
 
   return (
     <React.Fragment>
-      <div className={classes.root}>
+      <div className={classes.root} style={props.style}>
         <List component="nav" aria-label="Main mailbox folders">
           <ListItem button selected>
             <ListItemIcon>
