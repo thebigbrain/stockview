@@ -1,0 +1,8 @@
+.view-divider {
+  width: 2px;
+  background: transparent;
+}
+
+.view-divider:hover {
+  cursor: ew-resize;
+}

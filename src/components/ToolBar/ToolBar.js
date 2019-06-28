@@ -10,11 +10,13 @@ import DraftsIcon from '@material-ui/icons/Drafts';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    minWidth: '50px',
     width: '50px',
     height: '100%',
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
-    textAlign: 'center'
+    textAlign: 'center',
+    overflowX: 'hidden'
   },
 }));
 

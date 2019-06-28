@@ -1,7 +1,10 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
+import ToolBar from 'components/ToolBar/ToolBar';
+import ViewDivider from 'components/ViewDivider/ViewDivider';
 
-const vlStyle = {
+
+const containerStyle = {
   backgroundColor: '#cfe8fc',
   height: '100%',
   width: '100%',
@@ -10,14 +13,20 @@ const vlStyle = {
   maxWidth: '100%',
 };
 
-export default function ViewLayout(props) {
-  console.log(props.children);
+export default class ViewLayout extends React.Component {
+  state = {};
 
-  return (
-    <React.Fragment>
-      <Container fixed style={vlStyle}>
-        {props.children}
+  render() {
+    return (
+      <Container fixed style={containerStyle}>
+        <ToolBar/>
+        <ViewDivider/>
+        <Container/>
+        <ViewDivider/>
+        <Container/>
+        <ViewDivider/>
+        <ToolBar/>
       </Container>
-    </React.Fragment>
-  );
+    );
+  }
 }
