@@ -1,15 +1,22 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
+const vlStyle = {
+  backgroundColor: '#cfe8fc',
+  height: '100%',
+  width: '100%',
+  margin: 0,
+  padding: 0,
+  maxWidth: '100%',
+};
 
-export default function ViewLayout() {
+export default function ViewLayout(props) {
+  console.log(props.children);
+
   return (
     <React.Fragment>
-      <CssBaseline/>
-      <Container fixed>
-        <Typography component="div" style={{backgroundColor: '#cfe8fc', height: '100vh'}}/>
+      <Container fixed style={vlStyle}>
+        {props.children}
       </Container>
     </React.Fragment>
   );

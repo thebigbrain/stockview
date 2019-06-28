@@ -1,12 +1,19 @@
 import React from 'react';
 import './App.css';
 import ViewLayout from 'components/ViewLayout/ViewLayout';
+import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline';
+import ToolBar from 'components/ToolBar/ToolBar';
 
 function App() {
   return (
-    <div className="App">
-      <ViewLayout/>
-    </div>
+    <React.Fragment>
+      <div className='App'>
+        <CssBaseline/>
+        <ViewLayout>
+          <ToolBar/>
+        </ViewLayout>
+      </div>
+    </React.Fragment>
   );
 }
 
