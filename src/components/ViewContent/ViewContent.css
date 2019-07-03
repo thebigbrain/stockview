@@ -1,0 +1,23 @@
+.view-content {
+    display: block;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+.view-content > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.view-content > .view-panel {
+    background-color: transparent;
+}
+
+.view-content > .watch-list {
+    background-color: #ffffff;
+}
+
+.view-content > .view-divider {
+    cursor: e-resize;
+}

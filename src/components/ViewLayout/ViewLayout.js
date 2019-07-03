@@ -1,9 +1,9 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
 import ToolBar from 'components/ToolBar/ToolBar';
 import ViewDivider from 'components/ViewDivider/ViewDivider';
 
 import './ViewLayout.css';
+import ViewContent from "../ViewContent/ViewContent";
 
 const containerStyle = {
   left: '0',
@@ -16,76 +16,36 @@ const containerStyle = {
   textAlign: 'left'
 };
 
+const toolbarWidth = '50';
+
 const leftToolBarStyle = {
   left: 0,
   top: 0,
+  width: toolbarWidth + 'px'
 };
 
 const rightToolBarStyle = {
   right: 0,
-  top: 0
-};
-
-const d1Style = {
-  top: '0',
-};
-
-const d2Style = {
-  cursor: 'ns-resize'
-};
-
-const d3Style = {
-  top: '0',
-  cursor: 'ew-resize'
-};
-
-const c1Style = {
   top: 0,
-  backgroundColor: '#fff'
+  width: toolbarWidth + 'px'
 };
 
-const c2Style = {
-  bottom: 0,
-  backgroundColor: '#fff'
-};
 
 export default class ViewLayout extends React.Component {
-  state = {
-    toolbarWidth: '50px',
-    dividerSize: '4px',
-    watchlistWidth: '0px'
-  };
+  componentDidMount() {
+    console.log('view layout did mount');
+  }
 
   render() {
-    const {toolbarWidth, dividerSize, watchlistWidth} = this.state;
-
-    leftToolBarStyle.width = toolbarWidth;
-    rightToolBarStyle.width = toolbarWidth;
-    d1Style.left = toolbarWidth;
-    d3Style.right = toolbarWidth;
-
-    c1Style.left = `calc(${toolbarWidth} + ${dividerSize})`;
-    c1Style.width = `calc(100vw - 2 * (${toolbarWidth} + ${dividerSize}) - ${watchlistWidth})`;
-    c1Style.height = `calc(60vh - ${dividerSize})`;
-
-    d2Style.left = c1Style.left;
-    d2Style.width = c1Style.width;
-    d2Style.top = c1Style.height;
-
-    c2Style.left = c1Style.left;
-    c2Style.width = c1Style.width;
-    c2Style.height = `calc(40vh)`;
+    const contentWidth = document.body.clientWidth - 2 * toolbarWidth - 4;
 
     return (
-      <Container className='view-layout' fixed style={containerStyle}>
+      <div className='view-layout' style={containerStyle}>
         <ToolBar style={leftToolBarStyle}/>
-        <ViewDivider vertical size={dividerSize} style={d1Style}/>
-        <Container style={c1Style}/>
-        <ViewDivider horizontal size={dividerSize} style={d2Style}/>
-        <Container style={c2Style}/>
-        <ViewDivider vertical size={dividerSize} style={d3Style}/>
+        <ViewDivider disabled width='4px'/>
+        <ViewContent width={contentWidth}/>
         <ToolBar style={rightToolBarStyle}/>
-      </Container>
+      </div>
     );
   }
 }

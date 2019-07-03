@@ -1,0 +1,15 @@
+.view-panel {
+    height: 100%;
+}
+
+.view-panel > .view-chart {
+    background-color: #ffffff;
+}
+
+.view-panel > .view-control {
+    background-color: #ffffff;
+}
+
+.view-panel > .view-divider {
+    cursor: n-resize;
+}
